@@ -21,11 +21,18 @@ export const metadata: Metadata = {
   description: 'Discover timeless wisdom, practical skills, and thoughtful insights on the journey to becoming a true man.',
 };
 
-export default function RootLayout({
+export const fetchCache = 'default-cache';
+
+export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<Record<string, string>>;
 }) {
+  // Await params to support the new Next.js 15 async APIs
+  await params;
+  
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${playfair.variable} ${inter.variable} font-sans min-h-screen flex flex-col`}>

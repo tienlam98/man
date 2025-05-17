@@ -4,13 +4,14 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Compass, BookOpen, Dumbbell, Book, Menu, X, Search, Moon, Sun } from "lucide-react"
+import { Compass, BookOpen, Dumbbell, Book, Menu, X, Search, Moon, Sun, FileText } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
 import { cn } from "@/lib/utils"
 
 const navigationItems = [
   { name: "Explore", href: "/explore", icon: Compass },
+  { name: "Blog", href: "/blog", icon: FileText },
   { name: "Skills", href: "/category/skills", icon: BookOpen },
   { name: "Philosophy", href: "/category/philosophy", icon: Book },
   { name: "Fitness", href: "/category/fitness", icon: Dumbbell },

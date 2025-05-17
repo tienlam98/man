@@ -1,0 +1,68 @@
+{
+  "collections": [
+    {
+      "name": "posts",
+      "label": "Posts",
+      "path": "posts",
+      "format": "md",
+      "fields": [
+        {
+          "name": "title",
+          "type": "string",
+          "label": "Title",
+          "required": true
+        },
+        {
+          "name": "publishedAt",
+          "type": "date",
+          "label": "Published At",
+          "required": true
+        },
+        {
+          "name": "content",
+          "type": "markdown",
+          "label": "Content",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "label": "Description",
+          "required": true
+        },
+        {
+          "name": "slug",
+          "type": "string",
+          "label": "Slug",
+          "required": true
+        },
+        {
+          "name": "coverImage",
+          "type": "image",
+          "label": "Cover Image",
+          "required": false
+        },
+        {
+          "name": "author",
+          "type": "object",
+          "label": "Author",
+          "required": true,
+          "fields": [
+            {
+              "name": "name",
+              "type": "string",
+              "label": "Name",
+              "required": true
+            },
+            {
+              "name": "picture",
+              "type": "image",
+              "label": "Picture",
+              "required": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+} 
