@@ -27,9 +27,16 @@ export async function getOutstatic() {
     } catch (error) {
       // Handle case where metadata file doesn't exist yet
       console.warn('Outstatic metadata not found, returning empty data');
+      // Create a fallback that matches the expected DB structure
       return {
-        getDocuments: () => [],
-        getDocumentBySlug: () => null
+        find: () => ({
+          project: () => ({
+            toArray: () => [],
+            first: () => null
+          }),
+          toArray: () => [],
+          first: () => null
+        })
       };
     }
   }
@@ -39,16 +46,20 @@ export async function getOutstatic() {
 // Get all posts with caching enabled
 export async function getAllPosts(): Promise<Post[]> {
   try {
-    const { getDocuments } = await getOutstatic();
+    const db = await getOutstatic();
     
-    const posts = getDocuments('posts', [
-      'title',
-      'publishedAt',
-      'description',
-      'slug',
-      'coverImage',
-      'author',
-    ]);
+    // Using the find method from Outstatic v2
+    const posts = await db
+      .find({ collection: 'posts' })
+      .project([
+        'title',
+        'publishedAt',
+        'description',
+        'slug',
+        'coverImage',
+        'author',
+      ])
+      .toArray();
     
     return posts as Post[];
   } catch (error) {
@@ -60,17 +71,24 @@ export async function getAllPosts(): Promise<Post[]> {
 // Get a post by slug with caching enabled
 export async function getPostBySlug(slug: string): Promise<Post | null> {
   try {
-    const { getDocumentBySlug } = await getOutstatic();
+    const db = await getOutstatic();
     
-    const post = getDocumentBySlug('posts', slug, [
-      'title',
-      'publishedAt',
-      'description',
-      'slug',
-      'coverImage',
-      'content',
-      'author',
-    ]);
+    // Using the find method to get a document by slug
+    const post = await db
+      .find({
+        collection: 'posts',
+        slug: slug
+      })
+      .project([
+        'title',
+        'publishedAt',
+        'description',
+        'slug',
+        'coverImage',
+        'content',
+        'author',
+      ])
+      .first();
 
     return post as Post || null;
   } catch (error) {
