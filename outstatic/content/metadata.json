@@ -1,68 +1,22 @@
 {
-  "collections": [
+  "commit": "c92d68387b9140c09e2254eaacb4e7cc53006146",
+  "generated": "2025-05-17T04:57:44.128Z",
+  "metadata": [
     {
-      "name": "posts",
-      "label": "Posts",
-      "path": "posts",
-      "format": "md",
-      "fields": [
-        {
-          "name": "title",
-          "type": "string",
-          "label": "Title",
-          "required": true
-        },
-        {
-          "name": "publishedAt",
-          "type": "date",
-          "label": "Published At",
-          "required": true
-        },
-        {
-          "name": "content",
-          "type": "markdown",
-          "label": "Content",
-          "required": true
-        },
-        {
-          "name": "description",
-          "type": "string",
-          "label": "Description",
-          "required": true
-        },
-        {
-          "name": "slug",
-          "type": "string",
-          "label": "Slug",
-          "required": true
-        },
-        {
-          "name": "coverImage",
-          "type": "image",
-          "label": "Cover Image",
-          "required": false
-        },
-        {
-          "name": "author",
-          "type": "object",
-          "label": "Author",
-          "required": true,
-          "fields": [
-            {
-              "name": "name",
-              "type": "string",
-              "label": "Name",
-              "required": true
-            },
-            {
-              "name": "picture",
-              "type": "image",
-              "label": "Picture",
-              "required": false
-            }
-          ]
-        }
-      ]
+      "__outstatic": {
+        "commit": "c92d68387b9140c09e2254eaacb4e7cc53006146",
+        "hash": "3287008073",
+        "path": "outstatic/content/posts/test-test-test-test.mdx"
+      },
+      "author": {
+        "name": "Tien",
+        "picture": "https://avatars.githubusercontent.com/u/110983549?v=4"
+      },
+      "collection": "posts",
+      "publishedAt": "2025-05-17T05:37:28.726Z",
+      "slug": "test-test-test-test",
+      "status": "published",
+      "title": "Test test test test"
     }
   ]
-} 
+}
